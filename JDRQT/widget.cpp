@@ -13,14 +13,14 @@ void Widget::init(){
     m_submit = new QPushButton("Valider",this);
     m_stats = new QPushButton("Génerer stats",this);
 
-    m_name = new QLineEdit();
-    m_force = new QLineEdit();
-    m_intel = new QLineEdit();
-    m_adresse = new QLineEdit();
-    m_charisme = new QLineEdit();
-    m_courage = new QLineEdit();
-    m_or = new QLineEdit();
-    m_destin = new QLineEdit();
+    m_name = new QLineEdit(m_model->sNom());
+    m_force = new QLineEdit(QString::number(m_model->iForce()));
+    m_intel = new QLineEdit(QString::number(m_model->iIntel()));
+    m_adresse = new QLineEdit(QString::number(m_model->iAddr()));
+    m_charisme = new QLineEdit(QString::number(m_model->iChar()));
+    m_courage = new QLineEdit(QString::number(m_model->iCourage()));
+    m_or = new QLineEdit(QString::number(m_model->iOr()));
+    m_destin = new QLineEdit(QString::number(m_model->iDestin()));
 
     //remplissage de la liste comp1
     m_comp1 = new QComboBox();
@@ -32,6 +32,7 @@ void Widget::init(){
     m_sexe = new QComboBox();
     m_sexe->addItem("Homme");
     m_sexe->addItem("Femme");
+    m_sexe->setCurrentText(m_model->sSexe());
 
 //remplissage de la liste origine
     m_origin = new QComboBox();
@@ -48,6 +49,7 @@ void Widget::init(){
     m_origin->addItem("Ogre");
     m_origin->addItem("Semi-homme");
     m_origin->addItem("Gnome");
+    m_origin->setCurrentText(m_model->sOrigin());
 
 //remplissage de la liste metier
     m_metier = new QComboBox();
@@ -63,6 +65,7 @@ void Widget::init(){
     m_metier->addItem("Marchand");
     m_metier->addItem("Ingénieur");
     m_metier->addItem("Noble");
+    m_metier->setCurrentText(m_model->sMetier());
 
     QFormLayout *formLayout = new QFormLayout;
     formLayout->addRow(tr("Entrez votre nom :","labelname"), m_name);
