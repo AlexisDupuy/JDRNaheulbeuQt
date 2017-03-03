@@ -50,6 +50,8 @@ private:
 private slots:
     void submit();
     void openStatsWindow();
+    void updateAvailableOrigines();
+    void updateAvailableJobs();
     void genComp();
 
 };
