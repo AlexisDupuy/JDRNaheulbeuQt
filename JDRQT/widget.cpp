@@ -13,6 +13,7 @@ void Widget::init(){
 
     m_submit = new QPushButton("Valider",this);
     m_stats = new QPushButton("Génerer stats",this);
+    m_armure = new QLineEdit(this);
 
     m_name = new QLineEdit(m_model->sNom());
     m_force = new QLineEdit(QString::number(m_model->iForce()));
@@ -54,6 +55,7 @@ void Widget::init(){
     m_origin->addItem("Gnôme");
     m_origin->setCurrentText(m_model->sOrigin());
 
+
 //remplissage de la liste metier
     m_metier = new QComboBox();
     m_metier->addItem("Guerrier");
@@ -84,6 +86,7 @@ void Widget::init(){
     formLayout->addRow(tr("Selectionnez votre métier :","labelmetier"), m_metier);
     formLayout->addRow(tr("Selectionnez votre compétence 1 :","labelcomp1"), m_comp1);
     formLayout->addRow(tr("Selectionnez votre compétence 2 :","labelcomp2"), m_comp2);
+    formLayout->addRow(tr("Entrez votre armure : ", "labelarmure"), m_armure);
     formLayout->addRow(m_stats);
     formLayout->addRow(m_submit);
 
