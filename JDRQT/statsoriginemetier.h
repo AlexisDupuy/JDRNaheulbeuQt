@@ -30,10 +30,14 @@ public:
     QPointer<QLabel> destin;
 
     QGridLayout *QGL;
-signals:
+    void handle();
+    void init();
+
 
 private slots:
     void returnStats();
+    void returnOr();
+    void returnDestin();
 };
 
 #endif // STATSORIGINEMETIER_H

@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QFormLayout>
 #include <QLabel>
-#include <QPushButton>
 #include <QLineEdit>
 #include <QPointer>
 #include <QMessageBox>
@@ -35,11 +34,11 @@ private:
     QPointer<QLineEdit> m_destin;
     QPointer<ModelJSON> m_model;
 
+    QComboBox *m_comp1;
+    QComboBox *m_comp2;
 
     QComboBox *m_origin;
     QComboBox *m_metier;
-
-
 
     QPushButton *m_stats;
     StatsOrigineMetier *SOMW;
@@ -51,6 +50,8 @@ private:
 private slots:
     void submit();
     void openStatsWindow();
+    void genComp();
+
 };
 
 #endif // WIDGET_H
