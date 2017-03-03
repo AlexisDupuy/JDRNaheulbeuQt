@@ -2,8 +2,7 @@
 #define MODELJSON_H
 
 #include <QObject>
-
-class QMap;
+#include <QMap>
 
 class ModelJSON : public QObject
 {
@@ -13,125 +12,127 @@ public:
 
 private:
     void readJson();
+
     void writeJson();
+
     QString sNom() const;
 
     void setSNom(const QString &sNom);
 
-    int sSexe() const;
+    double sSexe() const;
 
-    void setSSexe(int sSexe);
+    void setSSexe(double sSexe);
 
-    int sOrigin() const;
+    double sOrigin() const;
 
-    void setSOrigin(int sOrigin);
+    void setSOrigin(double sOrigin);
 
-    int sMetier() const;
+    double sMetier() const;
 
-    void setSMetier(int sMetier);
+    void setSMetier(double sMetier);
 
-    int iEv() const;
+    double iEv() const;
 
-    void setIEv(int iEv);
+    void setIEv(double iEv);
 
-    int iEa() const;
+    double iEa() const;
 
-    void setIEa(int iEa);
+    void setIEa(double iEa);
 
-    int iMagPhy() const;
+    double iMagPhy() const;
 
-    void setIMagPhy(int iMagPhy);
+    void setIMagPhy(double iMagPhy);
 
-    int iMagPsy() const;
+    double iMagPsy() const;
 
-    void setIMagPsy(int iMagPsy);
+    void setIMagPsy(double iMagPsy);
 
-    int iResMag() const;
+    double iResMag() const;
 
-    void setIResMag(int iResMag);
+    void setIResMag(double iResMag);
 
-    int iCourage() const;
+    double iCourage() const;
 
-    void setICourage(int iCourage);
+    void setICourage(double iCourage);
 
-    int iIntel() const;
+    double iIntel() const;
 
-    void setIIntel(int iIntel);
+    void setIIntel(double iIntel);
 
-    int iChar() const;
+    double iChar() const;
 
-    void setIChar(int iChar);
+    void setIChar(double iChar);
 
-    int iAddr() const;
+    double iAddr() const;
 
-    void setIAddr(int iAddr);
+    void setIAddr(double iAddr);
 
-    int iForce() const;
+    double iForce() const;
 
-    void setIForce(int iForce);
+    void setIForce(double iForce);
 
-    int iAttaq() const;
+    double iAttaq() const;
 
-    void setIAttaq(int iAttaq);
+    void setIAttaq(double iAttaq);
 
-    int iParad() const;
+    double iParad() const;
 
-    void setIParad(int iParad);
+    void setIParad(double iParad);
 
-    int iNiveau() const;
+    double iNiveau() const;
 
-    void setINiveau(int iNiveau);
+    void setINiveau(double iNiveau);
 
-    int iExpe() const;
+    double iExpe() const;
 
-    void setIExpe(int iExpe);
+    void setIExpe(double iExpe);
 
-    int iDestin() const;
+    double iDestin() const;
 
-    void setIDestin(int iDestin);
+    void setIDestin(double iDestin);
 
-    int iOr() const;
+    double iOr() const;
 
-    void setIOr(int iOr);
+    void setIOr(double iOr);
 
-    int iArgent() const;
+    double iArgent() const;
 
-    void setIArgent(int iArgent);
+    void setIArgent(double iArgent);
 
-    int iCuivre() const;
+    double iCuivre() const;
 
-    void setICuivre(int iCuivre);
+    void setICuivre(double iCuivre);
 
-    int iPr() const;
+    double iPr() const;
 
-    void setIPr(int iPr);
+    void setIPr(double iPr);
 
 private:
     // Variable de la fiche :
     // aFiche : array[Fiche]
     QString m_sNom; // : string
-    int m_sSexe; // : string
-    int m_sOrigin; // : enum(string)
-    int m_sMetier; // : enum(string)
-    int m_iEv; // : int // PV
-    int m_iEa; // : int // Mana
-    int m_iMagPhy; // : int
-    int m_iMagPsy; // : int
-    int m_iResMag; // : int
-    int m_iCourage; // : int
-    int m_iIntel; // : int
-    int m_iChar; // : int
-    int m_iAddr; // : int
-    int m_iForce; // : int
-    int m_iAttaq; // : int
-    int m_iParad; // : int
-    int m_iNiveau; // : int
-    int m_iExpe; // : int
-    int m_iDestin; // : int
-    int m_iOr; // : int
-    int m_iArgent; // : int
-    int m_iCuivre; // : int
-    int m_iPr; // : int // protection totale
+    double m_sSexe; // : string
+    double m_sOrigin; // : enum(string)
+    double m_sMetier; // : enum(string)
+    double m_iEv; // : double // PV
+    double m_iEa; // : double // Mana
+    double m_iMagPhy; // : int
+    double m_iMagPsy; // : int
+    double m_iResMag; // : int
+    double m_iCourage; // : int
+    double m_iIntel; // : int
+    double m_iChar; // : int
+    double m_iAddr; // : int
+    double m_iForce; // : int
+    double m_iAttaq; // : int
+    double m_iParad; // : int
+    double m_iNiveau; // : int
+    double m_iExpe; // : int
+    double m_iDestin; // : int
+    double m_iOr; // : int
+    double m_iArgent; // : int
+    double m_iCuivre; // : int
+    double m_iPr; // : double // protection totale
     QMap<QString, QString> m_cArmure; // : collection(string) // nom = nom armure (string), valeur = pr de l'armure (int), rupt = rupture de l'armure (string))
     QMap<QString, QString> m_cArme; // : collection(string) // nom = nom arme (string), valeur = pi de l'arme (string), rupt = rupture de l'arme (string))
 
