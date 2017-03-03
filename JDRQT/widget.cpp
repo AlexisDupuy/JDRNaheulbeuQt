@@ -109,6 +109,7 @@ void Widget::handle(){
 
 void Widget::submit(){
     QPushButton *btn = qobject_cast<QPushButton*>(sender());
+    m_model->writeJson("test", "test", "test", "test"," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ");
     m_msgBox.setText("Bravo vous avez créé un " + m_origin->currentText() +" " + m_metier->currentText() + " " + m_sexe->currentText() +". \nSon nom est ... " + m_name->text() + " !" );
     m_msgBox.exec();
 }

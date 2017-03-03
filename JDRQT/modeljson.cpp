@@ -67,6 +67,7 @@ void ModelJSON::readJson()
 }
 
 void ModelJSON::writeJson(QString _sNom, QString _sSexe, QString _sOrigin, QString _sMetier, QString _iEv, QString _iEa,
+                          QString _iMagPhy, QString _iMagPsy, QString _iResMag,
                           QString _iCourage, QString _iChar, QString _iIntel, QString _iAddr, QString _iForce,
                           QString _iAttaq, QString _iParad, QString _iNiveau, QString _iExpe, QString _iDestin,
                           QString _iOr, QString _iPr)
@@ -74,26 +75,34 @@ void ModelJSON::writeJson(QString _sNom, QString _sSexe, QString _sOrigin, QStri
     QString m_fiche;
     QFile file;
     file.setFileName("fiche.json");
-    QJsonArray array;
-    array.append(_sNom);
-    array.append(_sSexe);
-    array.append(_sOrigin);
-    array.append(_sMetier);
-    array.append(_iEv.toDouble());
-    array.append(_iEa.toDouble());
-    array.append(_iCourage.toDouble());
-    array.append(_iChar.toDouble());
-    array.append(_iIntel.toDouble());
-    array.append(_iAddr.toDouble());
-    array.append(_iForce.toDouble());
-    array.append(_iAttaq.toDouble());
-    array.append(_iParad.toDouble());
-    array.append(_iNiveau.toDouble());
-    array.append(_iExpe.toDouble());
-    array.append(_iDestin.toDouble());
-    array.append(_iOr.toDouble());
-    array.append(_iPr.toDouble());
-    QJsonDocument *doc = new QJsonDocument(array);
+    file.open(QIODevice::Truncate| QIODevice::ReadWrite);
+    m_fiche = file.readAll();
+    QJsonDocument ficheJson = QJsonDocument::fromJson(m_fiche.toUtf8());
+    QJsonObject jsonObject = ficheJson.object();
+    jsonObject["nom"] = _sNom;
+    jsonObject["sexe"] = _sSexe;
+    jsonObject["origin"] = _sOrigin;
+    jsonObject["metier"] = _sMetier;
+    jsonObject["ev"] = _iEv.toDouble();
+    jsonObject["ea"] = _iEa.toDouble();
+    jsonObject["magPhy"] = _iMagPhy.toDouble();
+    jsonObject["magPsy"] = _iMagPsy.toDouble();
+    jsonObject["resMag"] = _iResMag.toDouble();
+    jsonObject["courage"] = _iCourage.toDouble();
+    jsonObject["char"] = _iChar.toDouble();
+    jsonObject["intel"] = _iIntel.toDouble();
+    jsonObject["addr"] = _iAddr.toDouble();
+    jsonObject["force"] = _iForce.toDouble();
+    jsonObject["attaque"] = _iAttaq.toDouble();
+    jsonObject["parade"] = _iParad.toDouble();
+    jsonObject["niveau"] = _iNiveau.toDouble();
+    jsonObject["expe"] = _iExpe.toDouble();
+    jsonObject["destin"] = _iDestin.toDouble();
+    jsonObject["or"] = _iOr.toDouble();
+    jsonObject["pr"] = _iPr.toDouble();
+    QJsonDocument saveDoc(jsonObject);
+    file.write(saveDoc.toJson());
+    file.close();
 }
 
 QString ModelJSON::sNom() const
