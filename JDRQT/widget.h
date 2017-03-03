@@ -2,6 +2,8 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QPushButton>
+#include <statsoriginemetier.h>
 
 class Widget : public QWidget
 {
@@ -10,7 +12,11 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = 0);
     ~Widget();
-    bool test;
+    QPushButton *btnStats;
+    StatsOrigineMetier *SOMW;
+
+private slots:
+    void openStatsWindow();
 };
 
 #endif // WIDGET_H
