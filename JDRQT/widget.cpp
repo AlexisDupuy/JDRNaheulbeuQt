@@ -22,11 +22,9 @@ void Widget::init(){
 
     //remplissage de la liste comp1
     m_comp1 = new QComboBox();
-    m_comp1->addItem("Humain");
 
     //remplissage de la liste comp2
     m_comp2 = new QComboBox();
-    m_comp2->addItem("Humain");
 
     //remplissage de la liste sexe
     m_sexe = new QComboBox();
@@ -87,6 +85,10 @@ void Widget::init(){
 void Widget::handle(){
     QObject::connect(m_submit.data(), &QPushButton::clicked, this, &Widget::submit);
     QObject::connect(m_stats, &QPushButton::clicked, this, &Widget::openStatsWindow);
+    QObject::connect(m_origin, &QComboBox::currentTextChanged, this, &Widget::genComp);
+    QObject::connect(m_metier, &QComboBox::currentTextChanged, this, &Widget::genComp);
+
+
 }
 
 
@@ -101,6 +103,17 @@ void Widget::openStatsWindow(){
     SOMW->show();
     m_stats->setEnabled(false);
 }
+
+void Widget::genComp(){
+
+    m_comp1->clear();
+    m_comp1->addItem("Humain");
+
+    m_comp2->clear();
+    m_comp2->addItem("Humain");
+
+}
+
 
 
 

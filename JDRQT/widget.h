@@ -49,6 +49,8 @@ private:
 private slots:
     void submit();
     void openStatsWindow();
+    void genComp();
+
 };
 
 #endif // WIDGET_H
