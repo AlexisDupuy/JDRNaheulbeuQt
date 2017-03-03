@@ -114,7 +114,7 @@ double ModelJSON::iResMag() const
 {
     return m_iResMag;
 }
-void ModelJSON::setIResMag(int iResMag)
+
 void ModelJSON::setIResMag(double iResMag)
 {
     m_iResMag = iResMag;
@@ -131,20 +131,20 @@ void ModelJSON::setICourage(double iCourage)
 {
     m_iCourage = iCourage;
 }
-int ModelJSON::iIntel() const
-double ModelJSON::idoubleel() const
+
+double ModelJSON::iIntel() const
 {
 
     return m_idoubleel;
 }
 
 
-void ModelJSON::setIdoubleel(double idoubleel)
+void ModelJSON::setIntel(double idoubleel)
 {
 
     m_idoubleel = idoubleel;
 }
-int ModelJSON::iChar() const
+
 double ModelJSON::iChar() const
 {
     return m_iChar;
@@ -155,7 +155,7 @@ void ModelJSON::setIChar(double iChar)
 {
     m_iChar = iChar;
 }
-int ModelJSON::iAddr() const
+
 double ModelJSON::iAddr() const
 {
     return m_iAddr;
