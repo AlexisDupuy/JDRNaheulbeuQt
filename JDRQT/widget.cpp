@@ -66,7 +66,6 @@ void Widget::init(){
     m_metier->addItem("Marchand");
     m_metier->addItem("Ingénieur");
     m_metier->addItem("Noble");
-
     QFormLayout *formLayout = new QFormLayout;
     formLayout->addRow(tr("Entrez votre nom :","labelname"), m_name);
     formLayout->addRow(tr("Selectionnez votre sexe :","labelsexe"), m_sexe);
