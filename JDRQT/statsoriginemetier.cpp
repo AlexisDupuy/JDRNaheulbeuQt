@@ -2,11 +2,15 @@
 
 StatsOrigineMetier::StatsOrigineMetier(QWidget *parent) : QWidget(parent)
 {
+    handle();
+    init();
+}
+
+void StatsOrigineMetier::init(){
     m_lancerStats = new QPushButton("Génerer Stats",this);
     m_lancerOr = new QPushButton("Génerer Or",this);
     m_lancerDestin = new QPushButton("Génerer Destin",this);
 
-    connect(m_lancerStats, &QPushButton::clicked, this, &StatsOrigineMetier::returnStats);
 
     stat1 = new QLabel(this);
     stat2 = new QLabel(this);
@@ -37,8 +41,12 @@ StatsOrigineMetier::StatsOrigineMetier(QWidget *parent) : QWidget(parent)
 
     QGL->addWidget(m_lancerDestin, 1, 3);
     QGL->addWidget(destin, 2, 3);
+}
 
-
+void StatsOrigineMetier::handle(){
+    connect(m_lancerStats, &QPushButton::clicked, this, &StatsOrigineMetier::returnStats);
+    connect(m_lancerOr, &QPushButton::clicked, this, &StatsOrigineMetier::returnOr);
+    connect(m_lancerDestin, &QPushButton::clicked, this, &StatsOrigineMetier::returnDestin);
 }
 
 void StatsOrigineMetier::returnStats(){
@@ -48,6 +56,17 @@ void StatsOrigineMetier::returnStats(){
     stat3->setText(QString::number((qrand() % ((6))+1)+7));
     stat4->setText(QString::number((qrand() % ((6))+1)+7));
     stat5->setText(QString::number((qrand() % ((6))+1)+7));
+}
+
+void StatsOrigineMetier::returnOr(){
+    qsrand(qrand());
+    or1->setText(QString::number((qrand() % (6))+1));
+    or2->setText(QString::number((qrand() % (6))+1));
+}
+
+void StatsOrigineMetier::returnDestin(){
+    qsrand(qrand());
+    destin->setText(QString::number((qrand() % (4))));
 }
 
 StatsOrigineMetier::~StatsOrigineMetier(){
