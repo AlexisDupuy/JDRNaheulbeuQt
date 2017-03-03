@@ -13,15 +13,16 @@ void Widget::init(){
 
     m_submit = new QPushButton("Valider",this);
     m_stats = new QPushButton("Génerer stats",this);
+    m_armure = new QLineEdit(this);
 
-    m_name = new QLineEdit();
-    m_force = new QLineEdit();
-    m_intel = new QLineEdit();
-    m_adresse = new QLineEdit();
-    m_charisme = new QLineEdit();
-    m_courage = new QLineEdit();
-    m_or = new QLineEdit();
-    m_destin = new QLineEdit();
+    m_name = new QLineEdit(m_model->sNom());
+    m_force = new QLineEdit(QString::number(m_model->iForce()));
+    m_intel = new QLineEdit(QString::number(m_model->iIntel()));
+    m_adresse = new QLineEdit(QString::number(m_model->iAddr()));
+    m_charisme = new QLineEdit(QString::number(m_model->iChar()));
+    m_courage = new QLineEdit(QString::number(m_model->iCourage()));
+    m_or = new QLineEdit(QString::number(m_model->iOr()));
+    m_destin = new QLineEdit(QString::number(m_model->iDestin()));
 
     //remplissage de la liste comp1
     m_comp1 = new QComboBox();
@@ -35,6 +36,7 @@ void Widget::init(){
     m_sexe = new QComboBox();
     m_sexe->addItem("Homme");
     m_sexe->addItem("Femme");
+    m_sexe->setCurrentText(m_model->sSexe());
 
 //remplissage de la liste origine
     m_origin = new QComboBox();
@@ -51,6 +53,8 @@ void Widget::init(){
     m_origin->addItem("Ogre");
     m_origin->addItem("Semi-homme");
     m_origin->addItem("Gnôme");
+    m_origin->setCurrentText(m_model->sOrigin());
+
 
 //remplissage de la liste metier
     m_metier = new QComboBox();
@@ -66,6 +70,7 @@ void Widget::init(){
     m_metier->addItem("Marchand");
     m_metier->addItem("Ingénieur");
     m_metier->addItem("Noble");
+    m_metier->setCurrentText(m_model->sMetier());
 
     QFormLayout *formLayout = new QFormLayout;
     formLayout->addRow(tr("Entrez votre nom :","labelname"), m_name);
@@ -81,6 +86,7 @@ void Widget::init(){
     formLayout->addRow(tr("Selectionnez votre métier :","labelmetier"), m_metier);
     formLayout->addRow(tr("Selectionnez votre compétence 1 :","labelcomp1"), m_comp1);
     formLayout->addRow(tr("Selectionnez votre compétence 2 :","labelcomp2"), m_comp2);
+    formLayout->addRow(tr("Entrez votre armure : ", "labelarmure"), m_armure);
     formLayout->addRow(m_stats);
     formLayout->addRow(m_submit);
 
@@ -108,6 +114,7 @@ void Widget::handle(){
 
 void Widget::submit(){
     QPushButton *btn = qobject_cast<QPushButton*>(sender());
+    m_model->writeJson(m_name->text(), m_sexe->currentText(), m_origin->currentText(), m_metier->currentText(),QString::number(m_model->iEv()),QString::number(m_model->iEa()),QString::number(m_model->iMagPhy()),QString::number(m_model->iMagPsy()),QString::number(m_model->iResMag()),m_courage->text(),m_charisme->text(),m_intel->text(),m_adresse->text(),m_force->text(),QString::number(m_model->iAttaq()),QString::number(m_model->iParad()),QString::number(m_model->iNiveau()),QString::number(m_model->iExpe()),m_destin->text(),m_or->text(),QString::number(m_model->iPr()));
     m_msgBox.setText("Bravo vous avez créé un " + m_origin->currentText() +" " + m_metier->currentText() + " " + m_sexe->currentText() +". \nSon nom est ... " + m_name->text() + " !" );
     m_msgBox.exec();
 }

@@ -1,5 +1,4 @@
-#include "modeljson.h"
-#include "QMap"
+#include <modeljson.h>
 #include <QDebug>
 
 ModelJSON::ModelJSON(QObject *parent) : QObject(parent)
@@ -87,9 +86,43 @@ void ModelJSON::readJson()
     }
 }
 
-void ModelJSON::writeJson()
+void ModelJSON::writeJson(QString _sNom, QString _sSexe, QString _sOrigin, QString _sMetier, QString _iEv, QString _iEa,
+                          QString _iMagPhy, QString _iMagPsy, QString _iResMag,
+                          QString _iCourage, QString _iChar, QString _iIntel, QString _iAddr, QString _iForce,
+                          QString _iAttaq, QString _iParad, QString _iNiveau, QString _iExpe, QString _iDestin,
+                          QString _iOr, QString _iPr)
 {
-
+    QString m_fiche;
+    QFile file;
+    file.setFileName("fiche.json");
+    file.open(QIODevice::Truncate| QIODevice::ReadWrite);
+    m_fiche = file.readAll();
+    QJsonDocument ficheJson = QJsonDocument::fromJson(m_fiche.toUtf8());
+    QJsonObject jsonObject = ficheJson.object();
+    jsonObject["nom"] = _sNom;
+    jsonObject["sexe"] = _sSexe;
+    jsonObject["origin"] = _sOrigin;
+    jsonObject["metier"] = _sMetier;
+    jsonObject["ev"] = _iEv.toDouble();
+    jsonObject["ea"] = _iEa.toDouble();
+    jsonObject["magPhy"] = _iMagPhy.toDouble();
+    jsonObject["magPsy"] = _iMagPsy.toDouble();
+    jsonObject["resMag"] = _iResMag.toDouble();
+    jsonObject["courage"] = _iCourage.toDouble();
+    jsonObject["char"] = _iChar.toDouble();
+    jsonObject["intel"] = _iIntel.toDouble();
+    jsonObject["addr"] = _iAddr.toDouble();
+    jsonObject["force"] = _iForce.toDouble();
+    jsonObject["attaque"] = _iAttaq.toDouble();
+    jsonObject["parade"] = _iParad.toDouble();
+    jsonObject["niveau"] = _iNiveau.toDouble();
+    jsonObject["expe"] = _iExpe.toDouble();
+    jsonObject["destin"] = _iDestin.toDouble();
+    jsonObject["or"] = _iOr.toDouble();
+    jsonObject["pr"] = _iPr.toDouble();
+    QJsonDocument saveDoc(jsonObject);
+    file.write(saveDoc.toJson());
+    file.close();
 }
 
 QString ModelJSON::sNom() const

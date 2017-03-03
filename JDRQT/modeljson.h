@@ -14,7 +14,6 @@ class ModelJSON : public QObject
     Q_OBJECT
 public:
     explicit ModelJSON(QObject *parent = 0);
-
     QList< QMap<QString, QString> > listArmes;
     QList< QMap<QString, QString> > listArmures;
 
@@ -106,6 +105,12 @@ public:
 
     void setIPr(double iPr);
 
+    void writeJson(QString _sNom, QString _sSexe, QString _sOrigin, QString _sMetier, QString _iEv, QString _iEa,
+                   QString _iMagPhy, QString _iMagPsy, QString _iResMag,
+                   QString _iCourage, QString _iChar, QString _iIntel, QString _iAddr, QString _iForce,
+                   QString _iAttaq, QString _iParad, QString _iNiveau, QString _iExpe, QString _iDestin,
+                   QString _iOr, QString _iPr);
+
 private:
     // Variable de la fiche :
     // aFiche : array[Fiche]
@@ -130,6 +135,8 @@ private:
     double m_iDestin; // : int
     double m_iOr; // : int
     double m_iPr; // : double // protection totale
+    QMap<QString, QString> m_cArmure; // : collection(string) // nom = nom armure (string), valeur = pr de l'armure (int), rupt = rupture de l'armure (string))
+    QMap<QString, QString> m_cArme; // : collection(string) // nom = nom arme (string), valeur = pi de l'arme (string), rupt = rupture de l'arme (string))
 
 signals:
 

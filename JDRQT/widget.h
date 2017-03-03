@@ -24,6 +24,7 @@ private:
     QMessageBox m_msgBox;
     QPointer<QLineEdit> m_name;
     QComboBox *m_sexe;
+    QPointer<QLineEdit> m_armure;
 
     QPointer<QLineEdit> m_force;
     QPointer<QLineEdit> m_intel;
