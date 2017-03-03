@@ -3,6 +3,7 @@
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
 {
+<<<<<<< HEAD
     init();
     handle();
 }
@@ -66,9 +67,19 @@ void Widget::submit(){
     QPushButton *btn = qobject_cast<QPushButton*>(sender());
     m_msgBox.setText("Bravo vous avez créé un " + m_origin->currentText() +" " + m_metier->currentText() + " " + m_sexe->currentText() +". \nSon nom est ... " + m_name->text() + " !" );
     m_msgBox.exec();
+=======
+    btnStats = new QPushButton(this);
+    connect(btnStats, SIGNAL(clicked()), this, SLOT(openStatsWindow()));
+>>>>>>> dda14d6791868e41cb2bdeba6aa62165931c3a1c
 }
+
+void Widget::openStatsWindow(){
+    SOMW = new StatsOrigineMetier();
+    SOMW->show();
+}
+
 
 Widget::~Widget()
 {
-
+    delete btnStats;
 }
