@@ -9,8 +9,8 @@
 #include <QPointer>
 #include <QMessageBox>
 #include <QComboBox>
-#include <QPushButton>#include <statsoriginemetier.h>
-
+#include <QPushButton>
+#include <statsoriginemetier.h>
 
 class Widget : public QWidget
 {
@@ -23,10 +23,23 @@ public:
 private:
     QPointer<QPushButton> m_submit;
     QMessageBox m_msgBox;
-    QLineEdit *m_name;
+    QPointer<QLineEdit> m_name;
     QComboBox *m_sexe;
+
+    QPointer<QLineEdit> m_force;
+    QPointer<QLineEdit> m_intel;
+    QPointer<QLineEdit> m_adresse;
+    QPointer<QLineEdit> m_charisme;
+    QPointer<QLineEdit> m_courage;
+    QPointer<QLineEdit> m_or;
+    QPointer<QLineEdit> m_destin;
+
+
+
     QComboBox *m_origin;
     QComboBox *m_metier;
+
+
 
     QPushButton *m_stats;
     StatsOrigineMetier *SOMW;
@@ -36,11 +49,7 @@ private:
     void handle();
 
 private slots:
-      void submit();
-    QPushButton *btnStats;
-    StatsOrigineMetier *SOMW;
-
-private slots:
+    void submit();
     void openStatsWindow();
 };
 

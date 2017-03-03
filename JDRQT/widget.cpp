@@ -12,7 +12,13 @@ void Widget::init(){
     m_stats = new QPushButton("Génerer stats",this);
 
     m_name = new QLineEdit();
-
+    m_force = new QLineEdit();
+    m_intel = new QLineEdit();
+    m_adresse = new QLineEdit();
+    m_charisme = new QLineEdit();
+    m_courage = new QLineEdit();
+    m_or = new QLineEdit();
+    m_destin = new QLineEdit();
 
 //remplissage de la liste sexe
     m_sexe = new QComboBox();
@@ -53,6 +59,13 @@ void Widget::init(){
     QFormLayout *formLayout = new QFormLayout;
     formLayout->addRow(tr("Entrez votre nom :","labelname"), m_name);
     formLayout->addRow(tr("Selectionnez votre sexe :","labelsexe"), m_sexe);
+    formLayout->addRow(tr("Entrez votre force :","labelforce"), m_force);
+    formLayout->addRow(tr("Entrez votre intelligence :","labelintel"), m_intel);
+    formLayout->addRow(tr("Entrez votre adresse :","labeladresse"), m_adresse);
+    formLayout->addRow(tr("Entrez votre charisme :","labelcharisme"), m_charisme);
+    formLayout->addRow(tr("Entrez votre courage :","labelcourage"), m_courage);
+    formLayout->addRow(tr("Entrez votre or :","labelor"), m_or);
+    formLayout->addRow(tr("Entrez votre destin :","labeldestin"), m_destin);
     formLayout->addRow(tr("Selectionnez votre origine :","labelorigin"), m_origin);
     formLayout->addRow(tr("Selectionnez votre métier :","labelmetier"), m_metier);
     formLayout->addRow(m_stats);
