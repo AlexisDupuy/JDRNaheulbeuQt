@@ -1,5 +1,4 @@
-#include "modeljson.h"
-#include "QMap"
+#include <modeljson.h>
 #include <QDebug>
 
 ModelJSON::ModelJSON(QObject *parent) : QObject(parent)
@@ -67,9 +66,34 @@ void ModelJSON::readJson()
     }
 }
 
-void ModelJSON::writeJson()
+void ModelJSON::writeJson(QString _sNom, QString _sSexe, QString _sOrigin, QString _sMetier, QString _iEv, QString _iEa,
+                          QString _iCourage, QString _iChar, QString _iIntel, QString _iAddr, QString _iForce,
+                          QString _iAttaq, QString _iParad, QString _iNiveau, QString _iExpe, QString _iDestin,
+                          QString _iOr, QString _iPr)
 {
-
+    QString m_fiche;
+    QFile file;
+    file.setFileName("fiche.json");
+    QJsonArray array;
+    array.append(_sNom);
+    array.append(_sSexe);
+    array.append(_sOrigin);
+    array.append(_sMetier);
+    array.append(_iEv.toDouble());
+    array.append(_iEa.toDouble());
+    array.append(_iCourage.toDouble());
+    array.append(_iChar.toDouble());
+    array.append(_iIntel.toDouble());
+    array.append(_iAddr.toDouble());
+    array.append(_iForce.toDouble());
+    array.append(_iAttaq.toDouble());
+    array.append(_iParad.toDouble());
+    array.append(_iNiveau.toDouble());
+    array.append(_iExpe.toDouble());
+    array.append(_iDestin.toDouble());
+    array.append(_iOr.toDouble());
+    array.append(_iPr.toDouble());
+    QJsonDocument *doc = new QJsonDocument(array);
 }
 
 QString ModelJSON::sNom() const

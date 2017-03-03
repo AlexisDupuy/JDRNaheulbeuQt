@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QJsonArray>
 
 class ModelJSON : public QObject
 {
@@ -125,7 +126,10 @@ private:
     QMap<QString, QString> m_cArmure; // : collection(string) // nom = nom armure (string), valeur = pr de l'armure (int), rupt = rupture de l'armure (string))
     QMap<QString, QString> m_cArme; // : collection(string) // nom = nom arme (string), valeur = pi de l'arme (string), rupt = rupture de l'arme (string))
     void readJson();
-    void writeJson();
+    void writeJson(QString _sNom, QString _sSexe, QString _sOrigin, QString _sMetier, QString _iEv, QString _iEa,
+                   QString _iCourage, QString _iChar, QString _iIntel, QString _iAddr, QString _iForce,
+                   QString _iAttaq, QString _iParad, QString _iNiveau, QString _iExpe, QString _iDestin,
+                   QString _iOr, QString _iPr);
 
 signals:
 
