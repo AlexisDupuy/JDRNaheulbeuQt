@@ -5,6 +5,7 @@ Widget::Widget(QWidget *parent)
 {
     init();
     handle();
+    genComp();
 }
 void Widget::init(){
 
@@ -106,11 +107,91 @@ void Widget::openStatsWindow(){
 
 void Widget::genComp(){
 
-    m_comp1->clear();
-    m_comp1->addItem("Humain");
+    if(m_origin->currentText()=="Barbare")
+    {
+        m_comp1->clear();
+        m_comp1->addItem("Armes de bourrin");
+        m_comp1->addItem("Bourre-pif");
+        m_comp1->addItem("Chevaucher");
+        m_comp1->addItem("Escalader");
+        m_comp1->addItem("Intimider");
+        m_comp1->addItem("Nager");
+        m_comp1->addItem("pister");
+        m_comp1->addItem("Tirer correctement");
+        m_comp1->addItem("Truc de mauviette");
 
-    m_comp2->clear();
-    m_comp2->addItem("Humain");
+        m_comp2->clear();
+        m_comp2->addItem("Armes de bourrin");
+        m_comp2->addItem("Bourre-pif");
+        m_comp2->addItem("Chevaucher");
+        m_comp2->addItem("Escalader");
+        m_comp2->addItem("Intimider");
+        m_comp2->addItem("Nager");
+        m_comp2->addItem("Pister");
+        m_comp2->addItem("Tirer correctement");
+        m_comp2->addItem("Truc de mauviette");
+    }else if(m_origin->currentText()=="Nain")
+    {
+        m_comp1->clear();
+        m_comp1->addItem("Appel des renforts");
+        m_comp1->addItem("Arnaque et carambouille");
+        m_comp1->addItem("Bourre-pif");
+        m_comp1->addItem("Bricolo du dimanche");
+        m_comp1->addItem("Chercher des noises");
+        m_comp1->addItem("Fariboles");
+        m_comp1->addItem("Forgeron");
+        m_comp1->addItem("Mefiance");
+        m_comp1->addItem("Tirer correctement(hache de jet)");
+        m_comp1->addItem("Truc de mauviette");
+
+        m_comp2->clear();
+        m_comp2->addItem("Appel des renforts");
+        m_comp2->addItem("Arnaque et carambouille");
+        m_comp2->addItem("Bourre-pif");
+        m_comp2->addItem("Bricolo du dimanche");
+        m_comp2->addItem("Chercher des noises");
+        m_comp2->addItem("Fariboles");
+        m_comp2->addItem("Forgeron");
+        m_comp2->addItem("Mefiance");
+        m_comp2->addItem("Tirer correctement(hache de jet)");
+        m_comp2->addItem("Truc de mauviette");
+    }else if(m_origin->currentText()=="Haut Elfe")
+    {
+        m_comp1->clear();
+        m_comp1->addItem("Chef de groupe");
+        m_comp1->addItem("Chevaucher");
+        m_comp1->addItem("Jonglage et danse");
+        m_comp1->addItem("Nager");
+        m_comp1->addItem("Premiers soins");
+        m_comp1->addItem("Nager");
+        m_comp1->addItem("Tirer correctement");
+
+        m_comp2->clear();
+        m_comp2->addItem("Chef de groupe");
+        m_comp2->addItem("Chevaucher");
+        m_comp2->addItem("Jonglage et danse");
+        m_comp2->addItem("Nager");
+        m_comp2->addItem("Premiers soins");
+        m_comp2->addItem("Nager");
+        m_comp2->addItem("Tirer correctement");
+    }else
+    {
+        m_comp1->clear();
+        m_comp1->addItem("Chevaucher");
+        m_comp1->addItem("Escalader");
+        m_comp1->addItem("Intimider");
+        m_comp1->addItem("Nager");
+        m_comp1->addItem("pister");
+        m_comp1->addItem("Truc de mauviette");
+
+        m_comp2->clear();
+        m_comp2->addItem("Chevaucher");
+        m_comp2->addItem("Escalader");
+        m_comp2->addItem("Intimider");
+        m_comp2->addItem("Nager");
+        m_comp2->addItem("pister");
+        m_comp2->addItem("Truc de mauviette");
+    }
 
 }
 
