@@ -20,7 +20,15 @@ void Widget::init(){
     m_or = new QLineEdit();
     m_destin = new QLineEdit();
 
-//remplissage de la liste sexe
+    //remplissage de la liste comp1
+    m_comp1 = new QComboBox();
+    m_comp1->addItem("Humain");
+
+    //remplissage de la liste comp2
+    m_comp2 = new QComboBox();
+    m_comp2->addItem("Humain");
+
+    //remplissage de la liste sexe
     m_sexe = new QComboBox();
     m_sexe->addItem("Homme");
     m_sexe->addItem("Femme");
@@ -68,6 +76,8 @@ void Widget::init(){
     formLayout->addRow(tr("Entrez votre destin :","labeldestin"), m_destin);
     formLayout->addRow(tr("Selectionnez votre origine :","labelorigin"), m_origin);
     formLayout->addRow(tr("Selectionnez votre métier :","labelmetier"), m_metier);
+    formLayout->addRow(tr("Selectionnez votre compétence 1 :","labelcomp1"), m_comp1);
+    formLayout->addRow(tr("Selectionnez votre compétence 2 :","labelcomp2"), m_comp2);
     formLayout->addRow(m_stats);
     formLayout->addRow(m_submit);
 
@@ -77,7 +87,6 @@ void Widget::init(){
 void Widget::handle(){
     QObject::connect(m_submit.data(), &QPushButton::clicked, this, &Widget::submit);
     QObject::connect(m_stats, &QPushButton::clicked, this, &Widget::openStatsWindow);
-
 }
 
 
@@ -90,7 +99,9 @@ void Widget::submit(){
 void Widget::openStatsWindow(){
     SOMW = new StatsOrigineMetier();
     SOMW->show();
+    m_stats->setEnabled(false);
 }
+
 
 
 Widget::~Widget()

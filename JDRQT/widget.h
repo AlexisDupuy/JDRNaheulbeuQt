@@ -33,12 +33,11 @@ private:
     QPointer<QLineEdit> m_or;
     QPointer<QLineEdit> m_destin;
 
-
+    QComboBox *m_comp1;
+    QComboBox *m_comp2;
 
     QComboBox *m_origin;
     QComboBox *m_metier;
-
-
 
     QPushButton *m_stats;
     StatsOrigineMetier *SOMW;

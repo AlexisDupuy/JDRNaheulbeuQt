@@ -56,6 +56,8 @@ void StatsOrigineMetier::returnStats(){
     stat3->setText(QString::number((qrand() % ((6))+1)+7));
     stat4->setText(QString::number((qrand() % ((6))+1)+7));
     stat5->setText(QString::number((qrand() % ((6))+1)+7));
+    m_lancerStats->setEnabled(false);
+
 }
 
 void StatsOrigineMetier::returnOr(){
@@ -65,11 +67,15 @@ void StatsOrigineMetier::returnOr(){
     or1->setText(QString::number(numOr1));
     or2->setText(QString::number(numOr2));
     totalOr->setText(QString::number((numOr1+numOr2)*10));
+    m_lancerOr->setEnabled(false);
+
 }
 
 void StatsOrigineMetier::returnDestin(){
     qsrand(qrand());
     destin->setText(QString::number((qrand() % (4))));
+    m_lancerDestin->setEnabled(false);
+
 }
 
 StatsOrigineMetier::~StatsOrigineMetier(){
