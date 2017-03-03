@@ -2,11 +2,11 @@
 #define MODELJSON_H
 
 #include <QObject>
-#include <QMap>
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QMap>
 #include <QJsonArray>
 
 class ModelJSON : public QObject
@@ -14,6 +14,12 @@ class ModelJSON : public QObject
     Q_OBJECT
 public:
     explicit ModelJSON(QObject *parent = 0);
+    QList< QMap<QString, QString> > listArmes;
+    QList< QMap<QString, QString> > listArmures;
+
+    void readJson();
+
+    void writeJson();
 
     QString sNom() const;
 
@@ -131,7 +137,6 @@ private:
     double m_iPr; // : double // protection totale
     QMap<QString, QString> m_cArmure; // : collection(string) // nom = nom armure (string), valeur = pr de l'armure (int), rupt = rupture de l'armure (string))
     QMap<QString, QString> m_cArme; // : collection(string) // nom = nom arme (string), valeur = pi de l'arme (string), rupt = rupture de l'arme (string))
-    void readJson();
 
 signals:
 

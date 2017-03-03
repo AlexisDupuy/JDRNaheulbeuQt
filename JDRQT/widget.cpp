@@ -25,9 +25,11 @@ void Widget::init(){
 
     //remplissage de la liste comp1
     m_comp1 = new QComboBox();
+    m_comp1->setDuplicatesEnabled (false);
 
     //remplissage de la liste comp2
     m_comp2 = new QComboBox();
+    m_comp2->setDuplicatesEnabled (false);
 
     //remplissage de la liste sexe
     m_sexe = new QComboBox();
@@ -123,6 +125,7 @@ void Widget::openStatsWindow(){
 void Widget::genComp(){
     m_comp1->clear();
     m_comp2->clear();
+
     if(m_origin->currentText()=="Barbare")
     {
         m_comp1->addItem("Armes de bourrin");
@@ -131,7 +134,7 @@ void Widget::genComp(){
         m_comp1->addItem("Escalader");
         m_comp1->addItem("Intimider");
         m_comp1->addItem("Nager");
-        m_comp1->addItem("pister");
+        m_comp1->addItem("Pister");
         m_comp1->addItem("Tirer correctement");
         m_comp1->addItem("Truc de mauviette");
 
@@ -190,16 +193,17 @@ void Widget::genComp(){
         m_comp1->addItem("Escalader");
         m_comp1->addItem("Intimider");
         m_comp1->addItem("Nager");
-        m_comp1->addItem("pister");
+        m_comp1->addItem("Pister");
         m_comp1->addItem("Truc de mauviette");
 
         m_comp2->addItem("Chevaucher");
         m_comp2->addItem("Escalader");
         m_comp2->addItem("Intimider");
         m_comp2->addItem("Nager");
-        m_comp2->addItem("pister");
+        m_comp2->addItem("Pister");
         m_comp2->addItem("Truc de mauviette");
     }
+
     if(m_metier->currentText() == "Guerrier"){
         m_comp1->addItem("Ambidextrie");
         m_comp1->addItem("Chercher des noises");
@@ -208,6 +212,7 @@ void Widget::genComp(){
         m_comp1->addItem("Intimider");
         m_comp1->addItem("Tirer correctement");
         m_comp1->addItem("Truc de mauviette");
+
         m_comp2->addItem("Ambidextrie");
         m_comp2->addItem("Chercher des noises");
         m_comp2->addItem("Chevaucher");
@@ -225,6 +230,7 @@ void Widget::genComp(){
         m_comp1->addItem("Méfiance");
         m_comp1->addItem("Nager");
         m_comp1->addItem("Ressemble à rien");
+
         m_comp2->addItem("Ambidextrie");
         m_comp2->addItem("Chercher des noises");
         m_comp2->addItem("Chevaucher");
@@ -243,6 +249,7 @@ void Widget::genComp(){
         m_comp1->addItem("Frapper lâchement");
         m_comp1->addItem("Méfiance");
         m_comp1->addItem("Ressemble à rien");
+
         m_comp2->addItem("Arnaque et carambouille");
         m_comp2->addItem("Désamorcer");
         m_comp2->addItem("Erudition");

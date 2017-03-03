@@ -39,6 +39,26 @@ void ModelJSON::readJson()
         m_iOr = jsonObject.value(QString("or")).toDouble();
         m_iPr = jsonObject.value(QString("pr")).toDouble();
 
+        QJsonArray jsonArrayArmo = jsonObject["armure"].toArray();
+        foreach (const QJsonValue & value, jsonArrayArmo) {
+            QJsonObject objArmu = value.toObject();
+            QMap<QString, QString> tempMapa;
+            tempMapa.insert("nom" , objArmu["nom"].toString());
+            tempMapa.insert("pr" , objArmu["pr"].toString());
+            tempMapa.insert("rupt" , objArmu["rupt"].toString());
+            listArmures.append(tempMapa);
+        }
+
+        QJsonArray jsonArrayArmu = jsonObject["arme"].toArray();
+        foreach (const QJsonValue & value, jsonArrayArmu) {
+            QJsonObject objArme = value.toObject();
+            QMap<QString, QString> tempMapw;
+            tempMapw.insert("nom" , objArme["nom"].toString());
+            tempMapw.insert("pi" , objArme["pi"].toString());
+            tempMapw.insert("rupt" , objArme["rupt"].toString());
+            listArmes.append(tempMapw);
+        }
+
     } else {
         qDebug() << "existe pas";
         file.close();
