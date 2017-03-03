@@ -11,10 +11,6 @@
 #include <QComboBox>
 #include <QPushButton>
 #include <statsoriginemetier.h>
-<<<<<<< HEAD
-=======
-
->>>>>>> 5931eb52c1e48cbf87a857b853a4a9d2564c80d2
 
 class Widget : public QWidget
 {
@@ -53,11 +49,7 @@ private:
     void handle();
 
 private slots:
-<<<<<<< HEAD
     void submit();
-=======
-      void submit();
->>>>>>> 5931eb52c1e48cbf87a857b853a4a9d2564c80d2
     void openStatsWindow();
 };
 
