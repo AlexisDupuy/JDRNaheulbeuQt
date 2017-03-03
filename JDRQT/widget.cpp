@@ -3,13 +3,14 @@
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
 {
-<<<<<<< HEAD
     init();
     handle();
 }
 void Widget::init(){
 
     m_submit = new QPushButton("Valider",this);
+    m_stats = new QPushButton("Génerer stats",this);
+
     m_name = new QLineEdit();
 
 
@@ -54,12 +55,16 @@ void Widget::init(){
     formLayout->addRow(tr("Selectionnez votre sexe :","labelsexe"), m_sexe);
     formLayout->addRow(tr("Selectionnez votre origine :","labelorigin"), m_origin);
     formLayout->addRow(tr("Selectionnez votre métier :","labelmetier"), m_metier);
+    formLayout->addRow(m_stats);
     formLayout->addRow(m_submit);
+
     setLayout(formLayout);
 }
 
 void Widget::handle(){
     QObject::connect(m_submit.data(), &QPushButton::clicked, this, &Widget::submit);
+    QObject::connect(m_stats, &QPushButton::clicked, this, &Widget::openStatsWindow);
+
 }
 
 
@@ -67,10 +72,6 @@ void Widget::submit(){
     QPushButton *btn = qobject_cast<QPushButton*>(sender());
     m_msgBox.setText("Bravo vous avez créé un " + m_origin->currentText() +" " + m_metier->currentText() + " " + m_sexe->currentText() +". \nSon nom est ... " + m_name->text() + " !" );
     m_msgBox.exec();
-=======
-    btnStats = new QPushButton(this);
-    connect(btnStats, SIGNAL(clicked()), this, SLOT(openStatsWindow()));
->>>>>>> dda14d6791868e41cb2bdeba6aa62165931c3a1c
 }
 
 void Widget::openStatsWindow(){
@@ -81,5 +82,5 @@ void Widget::openStatsWindow(){
 
 Widget::~Widget()
 {
-    delete btnStats;
+    delete m_stats;
 }

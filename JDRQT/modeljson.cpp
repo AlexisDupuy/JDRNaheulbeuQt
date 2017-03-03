@@ -1,5 +1,5 @@
 #include "modeljson.h"
-#include "QMap"
+#include <QMap>
 
 ModelJSON::ModelJSON(QObject *parent) : QObject(parent)
 {

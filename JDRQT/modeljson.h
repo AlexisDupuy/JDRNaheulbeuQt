@@ -2,8 +2,7 @@
 #define MODELJSON_H
 
 #include <QObject>
-
-class QMap;
+#include <QMap>
 
 class ModelJSON : public QObject
 {

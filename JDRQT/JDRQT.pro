@@ -25,11 +25,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         widget.cpp \
-        modeljson.cpp\
-    statsoriginemetier.cpp
+    statsoriginemetier.cpp \
+    modeljson.cpp
 
 HEADERS  += widget.h \
     statsoriginemetier.h\
-    modeljson.cpp
+    modeljson.h
 
 
