@@ -25,9 +25,11 @@ void Widget::init(){
 
     //remplissage de la liste comp1
     m_comp1 = new QComboBox();
+    m_comp1->setDuplicatesEnabled (false);
 
     //remplissage de la liste comp2
     m_comp2 = new QComboBox();
+    m_comp2->setDuplicatesEnabled (false);
 
     //remplissage de la liste sexe
     m_sexe = new QComboBox();
@@ -108,22 +110,21 @@ void Widget::openStatsWindow(){
 }
 
 void Widget::genComp(){
-<<<<<<< HEAD
+    m_comp1->clear();
+    m_comp2->clear();
 
     if(m_origin->currentText()=="Barbare")
     {
-        m_comp1->clear();
         m_comp1->addItem("Armes de bourrin");
         m_comp1->addItem("Bourre-pif");
         m_comp1->addItem("Chevaucher");
         m_comp1->addItem("Escalader");
         m_comp1->addItem("Intimider");
         m_comp1->addItem("Nager");
-        m_comp1->addItem("pister");
+        m_comp1->addItem("Pister");
         m_comp1->addItem("Tirer correctement");
         m_comp1->addItem("Truc de mauviette");
 
-        m_comp2->clear();
         m_comp2->addItem("Armes de bourrin");
         m_comp2->addItem("Bourre-pif");
         m_comp2->addItem("Chevaucher");
@@ -135,7 +136,6 @@ void Widget::genComp(){
         m_comp2->addItem("Truc de mauviette");
     }else if(m_origin->currentText()=="Nain")
     {
-        m_comp1->clear();
         m_comp1->addItem("Appel des renforts");
         m_comp1->addItem("Arnaque et carambouille");
         m_comp1->addItem("Bourre-pif");
@@ -147,7 +147,6 @@ void Widget::genComp(){
         m_comp1->addItem("Tirer correctement(hache de jet)");
         m_comp1->addItem("Truc de mauviette");
 
-        m_comp2->clear();
         m_comp2->addItem("Appel des renforts");
         m_comp2->addItem("Arnaque et carambouille");
         m_comp2->addItem("Bourre-pif");
@@ -160,7 +159,6 @@ void Widget::genComp(){
         m_comp2->addItem("Truc de mauviette");
     }else if(m_origin->currentText()=="Haut Elfe")
     {
-        m_comp1->clear();
         m_comp1->addItem("Chef de groupe");
         m_comp1->addItem("Chevaucher");
         m_comp1->addItem("Jonglage et danse");
@@ -169,7 +167,6 @@ void Widget::genComp(){
         m_comp1->addItem("Nager");
         m_comp1->addItem("Tirer correctement");
 
-        m_comp2->clear();
         m_comp2->addItem("Chef de groupe");
         m_comp2->addItem("Chevaucher");
         m_comp2->addItem("Jonglage et danse");
@@ -179,26 +176,22 @@ void Widget::genComp(){
         m_comp2->addItem("Tirer correctement");
     }else
     {
-        m_comp1->clear();
         m_comp1->addItem("Chevaucher");
         m_comp1->addItem("Escalader");
         m_comp1->addItem("Intimider");
         m_comp1->addItem("Nager");
-        m_comp1->addItem("pister");
+        m_comp1->addItem("Pister");
         m_comp1->addItem("Truc de mauviette");
 
-        m_comp2->clear();
         m_comp2->addItem("Chevaucher");
         m_comp2->addItem("Escalader");
         m_comp2->addItem("Intimider");
         m_comp2->addItem("Nager");
-        m_comp2->addItem("pister");
+        m_comp2->addItem("Pister");
         m_comp2->addItem("Truc de mauviette");
     }
 
-=======
-    m_comp1->clear();
-    m_comp2->clear();
+
     if(m_metier->currentText() == "Guerrier"){
         m_comp1->addItem("Ambidextrie");
         m_comp1->addItem("Chercher des noises");
@@ -207,6 +200,7 @@ void Widget::genComp(){
         m_comp1->addItem("Intimider");
         m_comp1->addItem("Tirer correctement");
         m_comp1->addItem("Truc de mauviette");
+
         m_comp2->addItem("Ambidextrie");
         m_comp2->addItem("Chercher des noises");
         m_comp2->addItem("Chevaucher");
@@ -224,6 +218,7 @@ void Widget::genComp(){
         m_comp1->addItem("Méfiance");
         m_comp1->addItem("Nager");
         m_comp1->addItem("Ressemble à rien");
+
         m_comp2->addItem("Ambidextrie");
         m_comp2->addItem("Chercher des noises");
         m_comp2->addItem("Chevaucher");
@@ -242,6 +237,7 @@ void Widget::genComp(){
         m_comp1->addItem("Frapper lâchement");
         m_comp1->addItem("Méfiance");
         m_comp1->addItem("Ressemble à rien");
+
         m_comp2->addItem("Arnaque et carambouille");
         m_comp2->addItem("Désamorcer");
         m_comp2->addItem("Erudition");
@@ -263,7 +259,7 @@ void Widget::genComp(){
         m_comp2->addItem("Truc de mauviette");
         m_comp2->addItem("Méfiance");
     }
->>>>>>> 820f076eacfd7db46b1a9a99e788f0da6e71ffb9
+
 }
 
 
