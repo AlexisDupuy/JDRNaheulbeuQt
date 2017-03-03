@@ -121,10 +121,7 @@ void Widget::openStatsWindow(){
 void Widget::genComp(){
     m_comp1->clear();
     m_comp2->clear();
-<<<<<<< HEAD
 
-=======
->>>>>>> 1f95761fdc6f2c5a93191beb6c00e3ca74950bdb
     if(m_origin->currentText()=="Barbare")
     {
         m_comp1->addItem("Armes de bourrin");
@@ -202,11 +199,7 @@ void Widget::genComp(){
         m_comp2->addItem("Pister");
         m_comp2->addItem("Truc de mauviette");
     }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 1f95761fdc6f2c5a93191beb6c00e3ca74950bdb
     if(m_metier->currentText() == "Guerrier"){
         m_comp1->addItem("Ambidextrie");
         m_comp1->addItem("Chercher des noises");
@@ -274,10 +267,6 @@ void Widget::genComp(){
         m_comp2->addItem("Truc de mauviette");
         m_comp2->addItem("Méfiance");
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 1f95761fdc6f2c5a93191beb6c00e3ca74950bdb
 }
 
 void Widget::updateAvailableOrigines(){
