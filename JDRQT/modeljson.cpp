@@ -6,6 +6,16 @@ ModelJSON::ModelJSON(QObject *parent) : QObject(parent)
 
 }
 
+void ModelJSON::readJson()
+{
+
+}
+
+void ModelJSON::writeJson()
+{
+
+}
+
 QString ModelJSON::sNom() const
 {
     return m_sNom;

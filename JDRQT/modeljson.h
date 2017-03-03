@@ -11,6 +11,9 @@ class ModelJSON : public QObject
 public:
     explicit ModelJSON(QObject *parent = 0);
 
+private:
+    void readJson();
+    void writeJson();
     QString sNom() const;
 
     void setSNom(const QString &sNom);
