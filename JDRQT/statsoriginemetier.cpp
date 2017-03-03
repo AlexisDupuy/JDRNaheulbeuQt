@@ -10,6 +10,7 @@ StatsOrigineMetier::StatsOrigineMetier(QWidget *parent) : QWidget(parent)
     stat4 = new QLabel(this);
     stat5 = new QLabel(this);
     QGL = new QGridLayout(this);
+    QGL->addWidget(btnLancerStats);
     QGL->addWidget(stat1);
     QGL->addWidget(stat2);
     QGL->addWidget(stat3);

@@ -29,6 +29,7 @@ SOURCES += main.cpp\
     modeljson.cpp
 
 HEADERS  += widget.h \
+    statsoriginemetier.h\
     statsoriginemetier.h \
     modeljson.h
 

@@ -9,8 +9,8 @@
 #include <QPointer>
 #include <QMessageBox>
 #include <QComboBox>
-#include <QPushButton>
-#include <statsoriginemetier.h>
+#include <QPushButton>#include <statsoriginemetier.h>
+
 
 class Widget : public QWidget
 {
@@ -19,6 +19,7 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = 0);
     ~Widget();
+
 private:
     QPointer<QPushButton> m_submit;
     QMessageBox m_msgBox;
@@ -26,6 +27,10 @@ private:
     QComboBox *m_sexe;
     QComboBox *m_origin;
     QComboBox *m_metier;
+
+    QPushButton *m_stats;
+    StatsOrigineMetier *SOMW;
+
 
     void init();
     void handle();
