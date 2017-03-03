@@ -9,6 +9,10 @@ class ModelJSON : public QObject
 public:
     explicit ModelJSON(QObject *parent = 0);
 
+private:
+    void readJson();
+    void writeJson();
+
 signals:
 
 public slots:
