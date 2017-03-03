@@ -17,7 +17,6 @@ class displayCharacterSheet : public QWidget
     Q_OBJECT
 public:
     explicit displayCharacterSheet(QWidget *parent = 0);
-
 private:
     QPointer<QLabel> m_nameLabel;
     QPointer<QLineEdit> m_name;
@@ -42,6 +41,7 @@ private:
 
 
     QPointer<QLabel> m_eaLabel;
+    QPointer<QLabel> m_maxLabel2;
     QPointer<QLineEdit> m_eaMax;
     QPointer<QLineEdit> m_eaComsumption1;
     QPointer<QLineEdit> m_eaComsumption2;
@@ -60,6 +60,7 @@ private:
     QPointer<QLabel> m_resMagLabel;
     QPointer<QLineEdit> m_resMag;
 
+    QPointer<QLabel> m_origLabel;
     QPointer<QLabel> m_courageLabel;
     QPointer<QLineEdit> m_courage;
     QPointer<QLineEdit> m_modCourage1;
@@ -123,9 +124,16 @@ private:
     QPointer<QLineEdit> m_modParade5;
     QPointer<QLineEdit> m_modParade6;
 
-
+    //QPointer<QLabel> m_lvlLabel;
+    //QPointer<QLineEdit> m_lvl;
+    //QPointer<QLabel> m_xpLabel;
+    //QPointer<QLineEdit> m_xp;
+    //QPointer<QLabel> m_orLabel;
     QPointer<QLineEdit> m_or;
+    //QPointer<QLabel> m_destinLabel;
     QPointer<QLineEdit> m_destin;
+
+
     QPointer<ModelJSON> m_model;
     QPointer<QGridLayout> m_layout;
 
