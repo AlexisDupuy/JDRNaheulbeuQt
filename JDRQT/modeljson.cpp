@@ -1,13 +1,70 @@
 #include "modeljson.h"
 #include "QMap"
+#include <QDebug>
+
 ModelJSON::ModelJSON(QObject *parent) : QObject(parent)
 {
-
+    readJson();
 }
 
 void ModelJSON::readJson()
 {
+    QString m_fiche;
+    QFile file;
+    file.setFileName("fiche.json");
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    if(file.exists()){
+        m_fiche = file.readAll();
+        file.close();
+        QJsonDocument ficheJson = QJsonDocument::fromJson(m_fiche.toUtf8());
+        QJsonObject jsonObject = ficheJson.object();
+        m_sNom = jsonObject.value(QString("nom")).toString();
+        m_sSexe = jsonObject.value(QString("sexe")).toString();
+        m_sOrigin = jsonObject.value(QString("origin")).toString();
+        m_sMetier = jsonObject.value(QString("metier")).toString();
+        m_iEv = jsonObject.value(QString("ev")).toDouble();
+        m_iEa = jsonObject.value(QString("ea")).toDouble();
+        m_iMagPhy = jsonObject.value(QString("magPhy")).toDouble();
+        m_iMagPsy = jsonObject.value(QString("magPsy")).toDouble();
+        m_iResMag = jsonObject.value(QString("resMag")).toDouble();
+        m_iCourage = jsonObject.value(QString("courage")).toDouble();
+        m_iChar = jsonObject.value(QString("char")).toDouble();
+        m_iIntel = jsonObject.value(QString("intel")).toDouble();
+        m_iAddr = jsonObject.value(QString("addr")).toDouble();
+        m_iForce = jsonObject.value(QString("force")).toDouble();
+        m_iAttaq = jsonObject.value(QString("attaque")).toDouble();
+        m_iParad = jsonObject.value(QString("parade")).toDouble();
+        m_iNiveau = jsonObject.value(QString("niveau")).toDouble();
+        m_iExpe = jsonObject.value(QString("expe")).toDouble();
+        m_iDestin = jsonObject.value(QString("destin")).toDouble();
+        m_iOr = jsonObject.value(QString("or")).toDouble();
+        m_iPr = jsonObject.value(QString("pr")).toDouble();
 
+    } else {
+        qDebug() << "existe pas";
+        file.close();
+        m_sNom = "";
+        m_sSexe = "";
+        m_sOrigin = "";
+        m_sMetier = "";
+        m_iEv = 0;
+        m_iEa = 0;
+        m_iMagPhy = 0;
+        m_iMagPsy = 0;
+        m_iResMag = 0;
+        m_iCourage = 0;
+        m_iChar = 0;
+        m_iIntel = 0;
+        m_iAddr = 0;
+        m_iForce = 0;
+        m_iAttaq = 0;
+        m_iParad = 0;
+        m_iNiveau = 0;
+        m_iExpe = 0;
+        m_iDestin = 0;
+        m_iOr = 0;
+        m_iPr = 0;
+    }
 }
 
 void ModelJSON::writeJson()
@@ -25,32 +82,32 @@ void ModelJSON::setSNom(const QString &sNom)
     m_sNom = sNom;
 }
 
-double ModelJSON::sSexe() const
+QString ModelJSON::sSexe() const
 {
     return m_sSexe;
 }
 
-void ModelJSON::setSSexe(double sSexe)
+void ModelJSON::setSSexe(const QString &sSexe)
 {
     m_sSexe = sSexe;
 }
 
-double ModelJSON::sOrigin() const
+QString ModelJSON::sOrigin() const
 {
     return m_sOrigin;
 }
 
-void ModelJSON::setSOrigin(double sOrigin)
+void ModelJSON::setSOrigin(const QString &sOrigin)
 {
     m_sOrigin = sOrigin;
 }
 
-double ModelJSON::sMetier() const
+QString ModelJSON::sMetier() const
 {
     return m_sMetier;
 }
 
-void ModelJSON::setSMetier(double sMetier)
+void ModelJSON::setSMetier(const QString &sMetier)
 {
     m_sMetier = sMetier;
 }
@@ -213,26 +270,6 @@ double ModelJSON::iOr() const
 void ModelJSON::setIOr(double iOr)
 {
     m_iOr = iOr;
-}
-
-double ModelJSON::iArgent() const
-{
-    return m_iArgent;
-}
-
-void ModelJSON::setIArgent(double iArgent)
-{
-    m_iArgent = iArgent;
-}
-
-double ModelJSON::iCuivre() const
-{
-    return m_iCuivre;
-}
-
-void ModelJSON::setICuivre(double iCuivre)
-{
-    m_iCuivre = iCuivre;
 }
 
 double ModelJSON::iPr() const

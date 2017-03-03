@@ -8,6 +8,8 @@ Widget::Widget(QWidget *parent)
 }
 void Widget::init(){
 
+    m_model = new ModelJSON();
+
     m_submit = new QPushButton("Valider",this);
     m_stats = new QPushButton("Génerer stats",this);
 
