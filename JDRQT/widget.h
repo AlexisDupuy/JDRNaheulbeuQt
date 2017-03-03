@@ -9,7 +9,8 @@
 #include <QPointer>
 #include <QMessageBox>
 #include <QComboBox>
-#include <QPushButton>#include <statsoriginemetier.h>
+#include <QPushButton>
+#include <statsoriginemetier.h>
 
 
 class Widget : public QWidget
@@ -37,10 +38,6 @@ private:
 
 private slots:
       void submit();
-    QPushButton *btnStats;
-    StatsOrigineMetier *SOMW;
-
-private slots:
     void openStatsWindow();
 };
 
