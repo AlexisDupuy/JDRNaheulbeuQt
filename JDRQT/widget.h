@@ -4,13 +4,12 @@
 #include <QWidget>
 #include <QFormLayout>
 #include <QLabel>
-#include <QPushButton>
 #include <QLineEdit>
 #include <QPointer>
 #include <QMessageBox>
 #include <QComboBox>
-#include <QPushButton>
 #include <statsoriginemetier.h>
+#include <modeljson.h>
 
 class Widget : public QWidget
 {
@@ -33,13 +32,13 @@ private:
     QPointer<QLineEdit> m_courage;
     QPointer<QLineEdit> m_or;
     QPointer<QLineEdit> m_destin;
+    QPointer<ModelJSON> m_model;
 
-
+    QComboBox *m_comp1;
+    QComboBox *m_comp2;
 
     QComboBox *m_origin;
     QComboBox *m_metier;
-
-
 
     QPushButton *m_stats;
     StatsOrigineMetier *SOMW;
@@ -51,8 +50,12 @@ private:
 private slots:
     void submit();
     void openStatsWindow();
+<<<<<<< HEAD
     void updateAvailableOrigines();
     void updateAvailableJobs();
+=======
+    void genComp();
+>>>>>>> d730d605e1b71617779be4899da3b6c847b21143
 
 };
 

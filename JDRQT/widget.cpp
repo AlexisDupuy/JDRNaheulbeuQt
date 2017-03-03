@@ -5,8 +5,11 @@ Widget::Widget(QWidget *parent)
 {
     init();
     handle();
+    genComp();
 }
 void Widget::init(){
+
+    m_model = new ModelJSON();
 
     m_submit = new QPushButton("Valider",this);
     m_stats = new QPushButton("Génerer stats",this);
@@ -20,7 +23,13 @@ void Widget::init(){
     m_or = new QLineEdit();
     m_destin = new QLineEdit();
 
-//remplissage de la liste sexe
+    //remplissage de la liste comp1
+    m_comp1 = new QComboBox();
+
+    //remplissage de la liste comp2
+    m_comp2 = new QComboBox();
+
+    //remplissage de la liste sexe
     m_sexe = new QComboBox();
     m_sexe->addItem("Homme");
     m_sexe->addItem("Femme");
@@ -68,6 +77,8 @@ void Widget::init(){
     formLayout->addRow(tr("Entrez votre destin :","labeldestin"), m_destin);
     formLayout->addRow(tr("Selectionnez votre origine :","labelorigin"), m_origin);
     formLayout->addRow(tr("Selectionnez votre métier :","labelmetier"), m_metier);
+    formLayout->addRow(tr("Selectionnez votre compétence 1 :","labelcomp1"), m_comp1);
+    formLayout->addRow(tr("Selectionnez votre compétence 2 :","labelcomp2"), m_comp2);
     formLayout->addRow(m_stats);
     formLayout->addRow(m_submit);
 
@@ -88,6 +99,8 @@ void Widget::handle(){
     QObject::connect(m_courage, &QLineEdit::textEdited, this, &Widget::updateAvailableJobs);
     QObject::connect(m_adresse, &QLineEdit::textEdited, this, &Widget::updateAvailableJobs);
     QObject::connect(m_origin, &QComboBox::currentTextChanged, this, &Widget::updateAvailableJobs);
+    QObject::connect(m_origin, &QComboBox::currentTextChanged, this, &Widget::genComp);
+    QObject::connect(m_metier, &QComboBox::currentTextChanged, this, &Widget::genComp);
 }
 
 
@@ -100,6 +113,154 @@ void Widget::submit(){
 void Widget::openStatsWindow(){
     SOMW = new StatsOrigineMetier();
     SOMW->show();
+    m_stats->setEnabled(false);
+}
+
+void Widget::genComp(){
+    m_comp1->clear();
+    m_comp2->clear();
+    if(m_origin->currentText()=="Barbare")
+    {
+        m_comp1->addItem("Armes de bourrin");
+        m_comp1->addItem("Bourre-pif");
+        m_comp1->addItem("Chevaucher");
+        m_comp1->addItem("Escalader");
+        m_comp1->addItem("Intimider");
+        m_comp1->addItem("Nager");
+        m_comp1->addItem("pister");
+        m_comp1->addItem("Tirer correctement");
+        m_comp1->addItem("Truc de mauviette");
+
+        m_comp2->addItem("Armes de bourrin");
+        m_comp2->addItem("Bourre-pif");
+        m_comp2->addItem("Chevaucher");
+        m_comp2->addItem("Escalader");
+        m_comp2->addItem("Intimider");
+        m_comp2->addItem("Nager");
+        m_comp2->addItem("Pister");
+        m_comp2->addItem("Tirer correctement");
+        m_comp2->addItem("Truc de mauviette");
+    }else if(m_origin->currentText()=="Nain")
+    {
+        m_comp1->addItem("Appel des renforts");
+        m_comp1->addItem("Arnaque et carambouille");
+        m_comp1->addItem("Bourre-pif");
+        m_comp1->addItem("Bricolo du dimanche");
+        m_comp1->addItem("Chercher des noises");
+        m_comp1->addItem("Fariboles");
+        m_comp1->addItem("Forgeron");
+        m_comp1->addItem("Mefiance");
+        m_comp1->addItem("Tirer correctement(hache de jet)");
+        m_comp1->addItem("Truc de mauviette");
+
+        m_comp2->addItem("Appel des renforts");
+        m_comp2->addItem("Arnaque et carambouille");
+        m_comp2->addItem("Bourre-pif");
+        m_comp2->addItem("Bricolo du dimanche");
+        m_comp2->addItem("Chercher des noises");
+        m_comp2->addItem("Fariboles");
+        m_comp2->addItem("Forgeron");
+        m_comp2->addItem("Mefiance");
+        m_comp2->addItem("Tirer correctement(hache de jet)");
+        m_comp2->addItem("Truc de mauviette");
+    }else if(m_origin->currentText()=="Haut Elfe")
+    {
+        m_comp1->addItem("Chef de groupe");
+        m_comp1->addItem("Chevaucher");
+        m_comp1->addItem("Jonglage et danse");
+        m_comp1->addItem("Nager");
+        m_comp1->addItem("Premiers soins");
+        m_comp1->addItem("Nager");
+        m_comp1->addItem("Tirer correctement");
+
+        m_comp2->addItem("Chef de groupe");
+        m_comp2->addItem("Chevaucher");
+        m_comp2->addItem("Jonglage et danse");
+        m_comp2->addItem("Nager");
+        m_comp2->addItem("Premiers soins");
+        m_comp2->addItem("Nager");
+        m_comp2->addItem("Tirer correctement");
+    }else
+    {
+        m_comp1->addItem("Chevaucher");
+        m_comp1->addItem("Escalader");
+        m_comp1->addItem("Intimider");
+        m_comp1->addItem("Nager");
+        m_comp1->addItem("pister");
+        m_comp1->addItem("Truc de mauviette");
+
+        m_comp2->addItem("Chevaucher");
+        m_comp2->addItem("Escalader");
+        m_comp2->addItem("Intimider");
+        m_comp2->addItem("Nager");
+        m_comp2->addItem("pister");
+        m_comp2->addItem("Truc de mauviette");
+    }
+    if(m_metier->currentText() == "Guerrier"){
+        m_comp1->addItem("Ambidextrie");
+        m_comp1->addItem("Chercher des noises");
+        m_comp1->addItem("Chevaucher");
+        m_comp1->addItem("Forgeron");
+        m_comp1->addItem("Intimider");
+        m_comp1->addItem("Tirer correctement");
+        m_comp1->addItem("Truc de mauviette");
+        m_comp2->addItem("Ambidextrie");
+        m_comp2->addItem("Chercher des noises");
+        m_comp2->addItem("Chevaucher");
+        m_comp2->addItem("Forgeron");
+        m_comp2->addItem("Intimider");
+        m_comp2->addItem("Tirer correctement");
+        m_comp2->addItem("Truc de mauviette");
+    }
+    else if(m_metier->currentText() == "Assassin"){
+        m_comp1->addItem("Ambidextrie");
+        m_comp1->addItem("Chercher des noises");
+        m_comp1->addItem("Chevaucher");
+        m_comp1->addItem("Erudition");
+        m_comp1->addItem("Escalader");
+        m_comp1->addItem("Méfiance");
+        m_comp1->addItem("Nager");
+        m_comp1->addItem("Ressemble à rien");
+        m_comp2->addItem("Ambidextrie");
+        m_comp2->addItem("Chercher des noises");
+        m_comp2->addItem("Chevaucher");
+        m_comp2->addItem("Erudition");
+        m_comp2->addItem("Escalader");
+        m_comp2->addItem("Méfiance");
+        m_comp2->addItem("Nager");
+        m_comp2->addItem("Ressemble à rien");
+    }
+    else if(m_metier->currentText() == "Voleur"){
+        m_comp1->addItem("Arnaque et carambouille");
+        m_comp1->addItem("Désamorcer");
+        m_comp1->addItem("Erudition");
+        m_comp1->addItem("Escalader");
+        m_comp1->addItem("Fouiller les poubelles");
+        m_comp1->addItem("Frapper lâchement");
+        m_comp1->addItem("Méfiance");
+        m_comp1->addItem("Ressemble à rien");
+        m_comp2->addItem("Arnaque et carambouille");
+        m_comp2->addItem("Désamorcer");
+        m_comp2->addItem("Erudition");
+        m_comp2->addItem("Escalader");
+        m_comp2->addItem("Fouiller les poubelles");
+        m_comp2->addItem("Frapper lâchement");
+        m_comp2->addItem("Méfiance");
+        m_comp2->addItem("Ressemble à rien");
+    }
+    else{
+        m_comp1->addItem("Arnaque et carambouille");
+        m_comp1->addItem("Désamorcer");
+        m_comp1->addItem("Tirer correctement");
+        m_comp1->addItem("Truc de mauviette");
+        m_comp1->addItem("Méfiance");
+        m_comp2->addItem("Arnaque et carambouille");
+        m_comp2->addItem("Désamorcer");
+        m_comp2->addItem("Tirer correctement");
+        m_comp2->addItem("Truc de mauviette");
+        m_comp2->addItem("Méfiance");
+    }
+>>>>>>> 820f076eacfd7db46b1a9a99e788f0da6e71ffb9
 }
 
 void Widget::updateAvailableOrigines(){
@@ -204,6 +365,8 @@ void Widget::updateAvailableJobs(){
     }
 
 }
+
+
 
 Widget::~Widget()
 {
