@@ -2,19 +2,21 @@
 #define MODELJSON_H
 
 #include <QObject>
-#include <QMap>
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QMap>
+#include <QJsonArray>
 
 class ModelJSON : public QObject
 {
     Q_OBJECT
 public:
     explicit ModelJSON(QObject *parent = 0);
+    QList< QMap<QString, QString> > listArmes;
+    QList< QMap<QString, QString> > listArmures;
 
-private:
     void readJson();
 
     void writeJson();
@@ -102,6 +104,12 @@ private:
     double iPr() const;
 
     void setIPr(double iPr);
+
+    void writeJson(QString _sNom, QString _sSexe, QString _sOrigin, QString _sMetier, QString _iEv, QString _iEa,
+                   QString _iMagPhy, QString _iMagPsy, QString _iResMag,
+                   QString _iCourage, QString _iChar, QString _iIntel, QString _iAddr, QString _iForce,
+                   QString _iAttaq, QString _iParad, QString _iNiveau, QString _iExpe, QString _iDestin,
+                   QString _iOr, QString _iPr);
 
 private:
     // Variable de la fiche :
