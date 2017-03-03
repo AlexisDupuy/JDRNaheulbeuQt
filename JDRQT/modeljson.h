@@ -57,7 +57,7 @@ private:
 
     double iIntel() const;
 
-    void setIIntel(double iIntel);
+    void setIntel(double iIntel);
 
     double iChar() const;
 
