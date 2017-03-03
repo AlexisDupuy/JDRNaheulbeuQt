@@ -2,8 +2,8 @@
 
 StatsOrigineMetier::StatsOrigineMetier(QWidget *parent) : QWidget(parent)
 {
-    handle();
     init();
+    handle();
 }
 
 void StatsOrigineMetier::init(){
@@ -60,8 +60,11 @@ void StatsOrigineMetier::returnStats(){
 
 void StatsOrigineMetier::returnOr(){
     qsrand(qrand());
-    or1->setText(QString::number((qrand() % (6))+1));
-    or2->setText(QString::number((qrand() % (6))+1));
+    int numOr1 = (qrand() % (6))+1;
+    int numOr2 = (qrand() % (6))+1;
+    or1->setText(QString::number(numOr1));
+    or2->setText(QString::number(numOr2));
+    totalOr->setText(QString::number((numOr1+numOr2)*10));
 }
 
 void StatsOrigineMetier::returnDestin(){
