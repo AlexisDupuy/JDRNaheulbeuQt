@@ -3,6 +3,10 @@
 
 #include <QObject>
 #include <QMap>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonValue>
 
 class ModelJSON : public QObject
 {
@@ -19,17 +23,17 @@ private:
 
     void setSNom(const QString &sNom);
 
-    double sSexe() const;
+    QString sSexe() const;
 
-    void setSSexe(double sSexe);
+    void setSSexe(const QString &sSexe);
 
-    double sOrigin() const;
+    QString sOrigin() const;
 
-    void setSOrigin(double sOrigin);
+    void setSOrigin(const QString &sOrigin);
 
-    double sMetier() const;
+    QString sMetier() const;
 
-    void setSMetier(double sMetier);
+    void setSMetier(const QString &sMetier);
 
     double iEv() const;
 
@@ -95,14 +99,6 @@ private:
 
     void setIOr(double iOr);
 
-    double iArgent() const;
-
-    void setIArgent(double iArgent);
-
-    double iCuivre() const;
-
-    void setICuivre(double iCuivre);
-
     double iPr() const;
 
     void setIPr(double iPr);
@@ -111,9 +107,9 @@ private:
     // Variable de la fiche :
     // aFiche : array[Fiche]
     QString m_sNom; // : string
-    double m_sSexe; // : string
-    double m_sOrigin; // : enum(string)
-    double m_sMetier; // : enum(string)
+    QString m_sSexe; // : string
+    QString m_sOrigin; // : enum(string)
+    QString m_sMetier; // : enum(string)
     double m_iEv; // : double // PV
     double m_iEa; // : double // Mana
     double m_iMagPhy; // : int
@@ -130,8 +126,6 @@ private:
     double m_iExpe; // : int
     double m_iDestin; // : int
     double m_iOr; // : int
-    double m_iArgent; // : int
-    double m_iCuivre; // : int
     double m_iPr; // : double // protection totale
     QMap<QString, QString> m_cArmure; // : collection(string) // nom = nom armure (string), valeur = pr de l'armure (int), rupt = rupture de l'armure (string))
     QMap<QString, QString> m_cArme; // : collection(string) // nom = nom arme (string), valeur = pi de l'arme (string), rupt = rupture de l'arme (string))

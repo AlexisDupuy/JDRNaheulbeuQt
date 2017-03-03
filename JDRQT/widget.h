@@ -8,8 +8,8 @@
 #include <QPointer>
 #include <QMessageBox>
 #include <QComboBox>
-#include <QPushButton>
 #include <statsoriginemetier.h>
+#include <modeljson.h>
 
 class Widget : public QWidget
 {
@@ -32,6 +32,7 @@ private:
     QPointer<QLineEdit> m_courage;
     QPointer<QLineEdit> m_or;
     QPointer<QLineEdit> m_destin;
+    QPointer<ModelJSON> m_model;
 
     QComboBox *m_comp1;
     QComboBox *m_comp2;
