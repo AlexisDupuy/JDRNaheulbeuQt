@@ -50,7 +50,7 @@ void Widget::init(){
     m_origin->addItem("Gobelin");
     m_origin->addItem("Ogre");
     m_origin->addItem("Semi-homme");
-    m_origin->addItem("Gnome");
+    m_origin->addItem("Gnôme");
 
 //remplissage de la liste metier
     m_metier = new QComboBox();
@@ -90,10 +90,19 @@ void Widget::init(){
 void Widget::handle(){
     QObject::connect(m_submit.data(), &QPushButton::clicked, this, &Widget::submit);
     QObject::connect(m_stats, &QPushButton::clicked, this, &Widget::openStatsWindow);
+    QObject::connect(m_force, &QLineEdit::textEdited, this, &Widget::updateAvailableOrigines);
+    QObject::connect(m_intel, &QLineEdit::textEdited, this, &Widget::updateAvailableOrigines);
+    QObject::connect(m_charisme, &QLineEdit::textEdited, this, &Widget::updateAvailableOrigines);
+    QObject::connect(m_courage, &QLineEdit::textEdited, this, &Widget::updateAvailableOrigines);
+    QObject::connect(m_adresse, &QLineEdit::textEdited, this, &Widget::updateAvailableOrigines);
+    QObject::connect(m_force, &QLineEdit::textEdited, this, &Widget::updateAvailableJobs);
+    QObject::connect(m_intel, &QLineEdit::textEdited, this, &Widget::updateAvailableJobs);
+    QObject::connect(m_charisme, &QLineEdit::textEdited, this, &Widget::updateAvailableJobs);
+    QObject::connect(m_courage, &QLineEdit::textEdited, this, &Widget::updateAvailableJobs);
+    QObject::connect(m_adresse, &QLineEdit::textEdited, this, &Widget::updateAvailableJobs);
+    QObject::connect(m_origin, &QComboBox::currentTextChanged, this, &Widget::updateAvailableJobs);
     QObject::connect(m_origin, &QComboBox::currentTextChanged, this, &Widget::genComp);
     QObject::connect(m_metier, &QComboBox::currentTextChanged, this, &Widget::genComp);
-
-
 }
 
 
@@ -112,7 +121,10 @@ void Widget::openStatsWindow(){
 void Widget::genComp(){
     m_comp1->clear();
     m_comp2->clear();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1f95761fdc6f2c5a93191beb6c00e3ca74950bdb
     if(m_origin->currentText()=="Barbare")
     {
         m_comp1->addItem("Armes de bourrin");
@@ -190,8 +202,11 @@ void Widget::genComp(){
         m_comp2->addItem("Pister");
         m_comp2->addItem("Truc de mauviette");
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 1f95761fdc6f2c5a93191beb6c00e3ca74950bdb
     if(m_metier->currentText() == "Guerrier"){
         m_comp1->addItem("Ambidextrie");
         m_comp1->addItem("Chercher des noises");
@@ -259,9 +274,114 @@ void Widget::genComp(){
         m_comp2->addItem("Truc de mauviette");
         m_comp2->addItem("Méfiance");
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1f95761fdc6f2c5a93191beb6c00e3ca74950bdb
 }
 
+void Widget::updateAvailableOrigines(){
+    int force = m_force->text().toInt();
+    int intel = m_intel->text().toInt();
+    int charisme = m_charisme->text().toInt();
+    int courage = m_courage->text().toInt();
+    int adresse = m_adresse->text().toInt();
+    m_origin->clear();
+    m_origin->addItem("Humain");
+    if(force >= 13 && courage >= 12){
+        m_origin->addItem("Barbare");
+    }
+    if(force >= 12 && courage >= 11){
+        m_origin->addItem("Nain");
+    }
+    if(charisme >= 12 && adresse >= 12 && intel >= 11 && force <= 12){
+        m_origin->addItem("Haut Elfe");
+    }
+    if(charisme >= 10 && adresse >= 11){
+        m_origin->addItem("Demi-Elfe");
+    }
+    if(charisme >= 12 && adresse >= 10 && force <= 11){
+        m_origin->addItem("Elfe Sylvain");
+    }
+    if(adresse >= 13 && intel >= 12 && force <= 12){
+        m_origin->addItem("Elfe Noir");
+    }
+    if(courage <= 10 && intel <= 8 && force >= 12){
+        m_origin->addItem("Orque");
+    }
+    if(adresse <= 10 && intel <= 10 && force >= 12){
+        m_origin->addItem("Demi-Orque");
+    }
+    if(courage <= 10 && intel <= 10 && force <= 9 && charisme <= 8){
+        m_origin->addItem("Gobelin");
+    }
+    if(charisme <= 10 && intel <= 9 && adresse <= 11 && force >= 13){
+        m_origin->addItem("Ogre");
+    }
+    if(courage >= 12 && intel >= 10 && force >= 10){
+        m_origin->addItem("Semi-Homme");
+    }
+    if(adresse >= 13 && intel >= 10 && force <= 8){
+        m_origin->addItem("Gnôme");
+    }
+}
+
+void Widget::updateAvailableJobs(){
+    int force = m_force->text().toInt();
+    int intel = m_intel->text().toInt();
+    int charisme = m_charisme->text().toInt();
+    int courage = m_courage->text().toInt();
+    int adresse = m_adresse->text().toInt();
+    m_metier->clear();
+    if(force >= 12 && courage >= 12){
+        m_metier->addItem("Guerrier");
+    }
+    if(adresse >= 13){
+        m_metier->addItem("Assassin");
+    }
+    if(adresse >= 12){
+        m_metier->addItem("Voleur");
+    }
+    if(charisme >= 10 && adresse >= 10){
+        m_metier->addItem("Ranger");
+    }
+    if(charisme >= 12 && adresse >= 11){
+        m_metier->addItem("Ménestrel");
+    }
+    if(adresse >= 11 && courage >= 11){
+        m_metier->addItem("Pirate");
+    }
+    if(charisme >= 11 && intel >= 12){
+        m_metier->addItem("Marchand");
+    }
+    if(adresse >= 11){
+        m_metier->addItem("Ingénieur");
+    }
+    if(charisme >= 11 && intel >= 10){
+        m_metier->addItem("Noble");
+    }
+    if(m_origin->currentText() != "Barbare" &&
+            m_origin->currentText() != "Nain" &&
+            m_origin->currentText() != "Orque" &&
+            m_origin->currentText() != "Ogre" &&
+            m_origin->currentText() != "Demi-Orque" &&
+            m_origin->currentText() != "Orque" &&
+            m_origin->currentText() != "Gnôme" &&
+            m_origin->currentText() != "Semi-Homme" &&
+            m_origin->currentText() != "Gobelin"
+            ){
+        if(charisme >= 12){
+            m_metier->addItem("Prêtre");
+        }
+        if(intel >= 12){
+            m_metier->addItem("Mage");
+        }
+        if(charisme >= 11 && courage >= 12 && intel >= 10 && force >= 9){
+            m_metier->addItem("Paladin");
+        }
+    }
+
+}
 
 
 
