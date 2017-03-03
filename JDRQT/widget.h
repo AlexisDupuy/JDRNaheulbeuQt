@@ -50,12 +50,9 @@ private:
 private slots:
     void submit();
     void openStatsWindow();
-<<<<<<< HEAD
     void updateAvailableOrigines();
     void updateAvailableJobs();
-=======
     void genComp();
->>>>>>> d730d605e1b71617779be4899da3b6c847b21143
 
 };
 

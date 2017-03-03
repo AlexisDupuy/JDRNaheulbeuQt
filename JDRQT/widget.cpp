@@ -260,7 +260,6 @@ void Widget::genComp(){
         m_comp2->addItem("Truc de mauviette");
         m_comp2->addItem("Méfiance");
     }
->>>>>>> 820f076eacfd7db46b1a9a99e788f0da6e71ffb9
 }
 
 void Widget::updateAvailableOrigines(){
@@ -332,16 +331,16 @@ void Widget::updateAvailableJobs(){
         m_metier->addItem("Ménestrel");
     }
     if(adresse >= 11 && courage >= 11){
-        m_origin->addItem("Pirate");
+        m_metier->addItem("Pirate");
     }
     if(charisme >= 11 && intel >= 12){
-        m_origin->addItem("Marchand");
+        m_metier->addItem("Marchand");
     }
     if(adresse >= 11){
-        m_origin->addItem("Ingénieur");
+        m_metier->addItem("Ingénieur");
     }
     if(charisme >= 11 && intel >= 10){
-        m_origin->addItem("Noble");
+        m_metier->addItem("Noble");
     }
     if(m_origin->currentText() != "Barbare" &&
             m_origin->currentText() != "Nain" &&
